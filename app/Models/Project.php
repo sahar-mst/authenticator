@@ -1,55 +1,19 @@
 <?php
 
-// namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Model;
-
-// class Project extends Model
-// {
-//     //
-// }
-
-
-
-
-
-// namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-
-// class Project extends Model
-// {
-//     use HasFactory;
-
-//     protected $fillable = ['title', 'description'];
-
-//     public function user()
-//     {
-//         return $this->belongsTo(User::class);
-//     }
-
-//     public function tasks()
-//     {
-//         return $this->hasMany(Task::class);
-//     }
-// }
-
-
-
-
-
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
- use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 class Project extends Model
 {
-    protected $fillable = ['title','description'];
+    use HasFactory;
 
-    public function tasks()
+    protected $fillable = ['title', 'description', 'user_id'];
+
+    public function user()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(User::class);
     }
 }
 
