@@ -10,14 +10,13 @@ return new class extends Migration {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
 
-            $table->string('title');
+            $table->string('title'); 
 
-            $table->text('description')->nullable();
+            $table->text('description')->nullable(); 
 
             $table->foreignId('user_id')
                   ->constrained()
                   ->cascadeOnDelete();
-
             $table->timestamps();
         });
     }
@@ -27,7 +26,6 @@ return new class extends Migration {
         Schema::dropIfExists('projects');
     }
 };
-
 
 
 
