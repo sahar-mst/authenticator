@@ -44,7 +44,7 @@ class TaskController extends Controller
          return response()->json(['error' => 'Forbidden'], 403);
       }
 
-            if($task->project_user_id!== $project->user_id){
+            if($task->project_id!== $project->id){
            return response()->json(['error' => 'Project not found or you do not have access'], 404);
              }
 
@@ -55,7 +55,7 @@ class TaskController extends Controller
         if ($project->user_id !== $request->user()->user_id) {
             return response()->json(['error' => 'Forbidden'], 403);
         }
-        if ($task->project_id !== $project->user_id) {
+        if ($task->project_id !== $project->id) {
             return response()->json(['error' => 'Project not found or you do not have access'], 404);
         }
 
